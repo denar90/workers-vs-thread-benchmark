@@ -16,7 +16,7 @@ const measureUserInputLatencyEnd = type => {
   );
   const measures = performance.getEntriesByName(`user-input-with-${type}`);
   const measure = measures[0];
-  console.log(`When user input while ${type} handle heavy stuff, main thread is busy for ${measure.duration} milliseconds`);
+  console.log(`When user input while ${type} handles heavy stuff, main thread is busy for ${measure.duration} milliseconds`);
   performance.clearMarks();
   performance.clearMeasures();
 };

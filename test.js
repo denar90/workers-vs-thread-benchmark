@@ -13,7 +13,7 @@ const openPage = async (browser, page) => {
     const browserPage = await browser.newPage();
     browserPage.on('console', msg => {
       for (let i = 0; i < msg.args().length; ++i)
-        console.log(`${i}: ${msg.args()[i]}`);
+        console.log(`${msg.args()[i]}`);
     });
     await browserPage.goto(`file:${path.join(__dirname, page)}`);
     await browserPage.waitFor(1000);
