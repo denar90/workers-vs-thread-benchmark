@@ -1,0 +1,14 @@
+{
+  "name": "workers-vs-thread-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "puppeteer": "^1.1.1"
+  }
+}

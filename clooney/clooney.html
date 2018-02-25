@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clooney</title>
+  <script src="https://cdn.jsdelivr.net/npm/clooneyjs@0.5.0/clooney.bundle.min.js"></script>
+</head>
+<body>
+<script src="../index.js"></script>
+<script>
+  class Actor {
+    async heavyScript() {
+      let count = 0;
+      for (let i = 0; i < 1000000000; i++)
+        count++;
+      return Promise.resolve(count);
+    }
+  }
+
+  (async function() {
+    async function newWorkerFunc() {
+      const blob = await fetch(Clooney.defaultWorkerSrc).then(resp => resp.blob())
+      return new Worker(URL.createObjectURL(blob));
+    }
+
+    const strategy = new Clooney.RoundRobinStrategy({newWorkerFunc});
+    const actorInstance = await strategy.spawn(Actor);
+    await runAndMeasure('Clooney', actorInstance.heavyScript);
+  })();
+</script>
+</body>
+</html>

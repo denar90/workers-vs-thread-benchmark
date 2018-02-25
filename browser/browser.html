@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Browser</title>
+  <script src="browser.js"></script>
+</head>
+<body>
+<script src="../index.js"></script>
+<script>
+  (async function() {
+    await runAndMeasure('browser', heavyScript);
+  })();
+</script>
+</body>
+</html>
